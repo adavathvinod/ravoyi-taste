@@ -2,95 +2,107 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* Ravoyi Virtual Kitchen - Earth & Ember Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Earth & Ember Palette */
+    --background: 20 10% 8%;
+    --foreground: 35 30% 90%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 20 12% 12%;
+    --card-foreground: 35 30% 90%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 20 12% 10%;
+    --popover-foreground: 35 30% 90%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Deep Terracotta - Primary */
+    --primary: 15 65% 45%;
+    --primary-foreground: 35 30% 95%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Charcoal - Secondary */
+    --secondary: 20 8% 18%;
+    --secondary-foreground: 35 30% 90%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Dark Earth */
+    --muted: 20 10% 15%;
+    --muted-foreground: 35 15% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Burnt Orange/Gold - Accent */
+    --accent: 35 85% 55%;
+    --accent-foreground: 20 10% 8%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 20 15% 20%;
+    --input: 20 15% 20%;
+    --ring: 35 85% 55%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Custom Ravoyi tokens */
+    --terracotta: 15 65% 45%;
+    --terracotta-light: 15 55% 55%;
+    --terracotta-dark: 15 70% 35%;
+    --charcoal: 20 10% 8%;
+    --charcoal-light: 20 8% 15%;
+    --ember: 25 90% 50%;
+    --gold: 40 85% 55%;
+    --gold-light: 40 80% 70%;
+    --cream: 35 30% 90%;
+    --spice-mild: 120 50% 45%;
+    --spice-medium: 45 90% 55%;
+    --spice-hot: 15 90% 55%;
+    --spice-fire: 0 85% 50%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(20 10% 5% / 0.95), hsl(15 65% 25% / 0.4));
+    --gradient-gold: linear-gradient(135deg, hsl(35 85% 55%), hsl(25 90% 50%));
+    --gradient-ember: linear-gradient(180deg, hsl(15 65% 45% / 0.1), transparent);
+    --gradient-dark: linear-gradient(180deg, hsl(20 10% 8%), hsl(20 12% 12%));
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Shadows */
+    --shadow-gold: 0 4px 30px hsl(35 85% 55% / 0.2);
+    --shadow-terracotta: 0 8px 40px hsl(15 65% 45% / 0.3);
+    --shadow-elevated: 0 20px 60px hsl(0 0% 0% / 0.5);
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* Fonts */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
 
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 20 10% 10%;
+    --sidebar-foreground: 35 30% 90%;
+    --sidebar-primary: 35 85% 55%;
+    --sidebar-primary-foreground: 20 10% 8%;
+    --sidebar-accent: 20 8% 18%;
+    --sidebar-accent-foreground: 35 30% 90%;
+    --sidebar-border: 20 15% 20%;
+    --sidebar-ring: 35 85% 55%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
+    --background: 20 10% 8%;
+    --foreground: 35 30% 90%;
+    --card: 20 12% 12%;
+    --card-foreground: 35 30% 90%;
+    --popover: 20 12% 10%;
+    --popover-foreground: 35 30% 90%;
+    --primary: 15 65% 45%;
+    --primary-foreground: 35 30% 95%;
+    --secondary: 20 8% 18%;
+    --secondary-foreground: 35 30% 90%;
+    --muted: 20 10% 15%;
+    --muted-foreground: 35 15% 55%;
+    --accent: 35 85% 55%;
+    --accent-foreground: 20 10% 8%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 20 15% 20%;
+    --input: 20 15% 20%;
+    --ring: 35 85% 55%;
   }
 }
 
@@ -99,7 +111,235 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* Namaste Overlay */
+  .namaste-overlay {
+    @apply fixed inset-0 z-[100] flex items-center justify-center;
+    background: linear-gradient(135deg, hsl(var(--charcoal)), hsl(var(--terracotta-dark) / 0.3));
+  }
+
+  .namaste-text {
+    @apply font-display text-6xl md:text-8xl lg:text-9xl font-medium tracking-wider;
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 60px hsl(var(--gold) / 0.5);
+  }
+
+  /* Gold Button */
+  .btn-gold {
+    @apply relative overflow-hidden px-8 py-4 font-display text-sm uppercase tracking-[0.2em];
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--ember)));
+    color: hsl(var(--charcoal));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px hsl(var(--gold) / 0.4);
+  }
+
+  /* Terracotta Button */
+  .btn-terracotta {
+    @apply relative overflow-hidden px-8 py-4 font-display text-sm uppercase tracking-[0.2em] border-2;
+    border-color: hsl(var(--terracotta));
+    color: hsl(var(--cream));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-terracotta:hover {
+    background: hsl(var(--terracotta));
+    color: hsl(var(--cream));
+  }
+
+  /* Floating Social Button */
+  .social-float {
+    @apply fixed z-50 flex flex-col gap-3;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .social-btn {
+    @apply w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300;
+    background: hsl(var(--charcoal-light));
+    border: 1px solid hsl(var(--gold) / 0.3);
+    color: hsl(var(--gold));
+  }
+
+  .social-btn:hover {
+    background: hsl(var(--gold));
+    color: hsl(var(--charcoal));
+    transform: scale(1.1);
+    box-shadow: 0 0 30px hsl(var(--gold) / 0.5);
+  }
+
+  /* Spice Meter */
+  .spice-indicator {
+    @apply flex gap-1;
+  }
+
+  .spice-flame {
+    @apply w-4 h-4 transition-all duration-300;
+  }
+
+  .spice-flame.active {
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+
+  /* Section Title */
+  .section-title {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-medium;
+    background: linear-gradient(135deg, hsl(var(--cream)), hsl(var(--gold-light)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-subtitle {
+    @apply font-display text-lg md:text-xl tracking-[0.3em] uppercase;
+    color: hsl(var(--gold));
+  }
+
+  /* Menu Card */
+  .menu-card {
+    @apply relative overflow-hidden rounded-lg p-6 transition-all duration-500;
+    background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--charcoal-light)));
+    border: 1px solid hsl(var(--border));
+  }
+
+  .menu-card:hover {
+    border-color: hsl(var(--gold) / 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px hsl(var(--terracotta) / 0.2);
+  }
+
+  /* Gold Divider */
+  .gold-divider {
+    @apply h-px w-full;
+    background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.5), transparent);
+  }
+
+  /* Parallax Container */
+  .parallax-container {
+    @apply relative overflow-hidden;
+    perspective: 1000px;
+  }
+
+  .parallax-layer {
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  /* Glass Effect */
+  .glass {
+    background: hsl(var(--charcoal) / 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--gold) / 0.1);
+  }
+}
+
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-namaste {
+    animation: namasteReveal 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes namasteReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px hsl(var(--gold) / 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 40px hsl(var(--gold) / 0.6);
   }
 }
