@@ -1,15 +1,21 @@
 import { Phone, MapPin, Clock, Mail } from 'lucide-react';
 
-const ContactSection = () => {
+interface ContactSectionProps {
+  showHeader?: boolean;
+}
+
+const ContactSection = ({ showHeader = true }: ContactSectionProps) => {
   return (
     <section id="contact" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="section-subtitle mb-4">Find Us</p>
-          <h2 className="section-title mb-6">Visit Ravoyi</h2>
-          <div className="gold-divider max-w-md mx-auto" />
-        </div>
+        {showHeader && (
+          <div className="text-center mb-16">
+            <p className="section-subtitle mb-4">Find Us</p>
+            <h2 className="section-title mb-6">Visit Ravoyi</h2>
+            <div className="gold-divider max-w-md mx-auto" />
+          </div>
+        )}
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Map */}
