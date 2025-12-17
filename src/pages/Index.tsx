@@ -1,14 +1,13 @@
 import { useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import NamasteOverlay from '@/components/NamasteOverlay';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
-import MenuSection from '@/components/MenuSection';
-import AboutSection from '@/components/AboutSection';
-import ReservationSection from '@/components/ReservationSection';
-import ContactSection from '@/components/ContactSection';
 import SocialFloat from '@/components/SocialFloat';
+import MusicToggle from '@/components/MusicToggle';
 import Footer from '@/components/Footer';
+import { ChefHat, CalendarDays, Star, MapPin } from 'lucide-react';
 
 const Index = () => {
   const [showOverlay, setShowOverlay] = useState(true);
@@ -16,6 +15,33 @@ const Index = () => {
   const handleOverlayComplete = useCallback(() => {
     setShowOverlay(false);
   }, []);
+
+  const features = [
+    {
+      icon: ChefHat,
+      title: 'Digital Kitchen',
+      description: 'Explore our authentic Telangana cuisine menu',
+      link: '/menu',
+    },
+    {
+      icon: CalendarDays,
+      title: 'Reserve Table',
+      description: 'Book your table with spice preferences',
+      link: '/reservations',
+    },
+    {
+      icon: Star,
+      title: 'Wall of Flavors',
+      description: 'Read what our guests say about us',
+      link: '/reviews',
+    },
+    {
+      icon: MapPin,
+      title: 'Visit Us',
+      description: 'Find us at NTR Nagar, Kothapet',
+      link: '/contact',
+    },
+  ];
 
   return (
     <>
@@ -27,85 +53,47 @@ const Index = () => {
         />
         <meta name="keywords" content="Telangana food, Hyderabad restaurant, Kunda Biryani, Gongura Mutton, Indian restaurant, traditional cuisine" />
         <link rel="canonical" href="https://ravoyi.com" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="Ravoyi Virtual Kitchen | Authentic Telangana Cuisine" />
-        <meta property="og:description" content="Where tradition meets luxury. Experience the soul of Telangana through our signature dishes." />
-        <meta property="og:type" content="restaurant" />
-        
-        {/* Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Restaurant",
-            "name": "Ravoyi Virtual Kitchen",
-            "image": "/hero-biryani.jpg",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Second Floor, Above Highlander, NTR Nagar",
-              "addressLocality": "Kothapet",
-              "addressRegion": "Telangana",
-              "postalCode": "500035",
-              "addressCountry": "IN"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 17.3691,
-              "longitude": 78.5241
-            },
-            "telephone": "+91-9876543210",
-            "servesCuisine": "Telangana, Indian",
-            "priceRange": "₹₹",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.3",
-              "reviewCount": "500"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-                "opens": "12:00",
-                "closes": "15:30"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-                "opens": "19:00",
-                "closes": "23:00"
-              }
-            ]
-          })}
-        </script>
       </Helmet>
 
       <main className="relative">
-        {/* Namaste Welcome Overlay */}
         {showOverlay && <NamasteOverlay onComplete={handleOverlayComplete} />}
-        
-        {/* Navigation */}
         <Navigation />
-        
-        {/* Hero Section */}
         <HeroSection />
         
-        {/* Menu Section */}
-        <MenuSection />
-        
-        {/* About Section */}
-        <AboutSection />
-        
-        {/* Reservation Section */}
-        <ReservationSection />
-        
-        {/* Contact Section */}
-        <ContactSection />
-        
-        {/* Footer */}
+        {/* Quick Links Section */}
+        <section className="py-20 bg-gradient-dark">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-12">
+              <p className="section-subtitle mb-4">Discover Ravoyi</p>
+              <h2 className="section-title">Experience Telangana</h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {features.map((feature, index) => (
+                <Link
+                  key={feature.title}
+                  to={feature.link}
+                  className="menu-card group text-center opacity-0 animate-fade-up"
+                  style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
+                >
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+                    <feature.icon className="w-7 h-7 text-gold" />
+                  </div>
+                  <h3 className="font-display text-xl text-cream mb-2 group-hover:text-gold transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {feature.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <Footer />
-        
-        {/* Floating Social Buttons */}
         <SocialFloat />
+        <MusicToggle />
       </main>
     </>
   );

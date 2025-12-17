@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import heroBiryani from '@/assets/hero-biryani.jpg';
 
 const HeroSection = () => {
@@ -69,24 +70,24 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-up delay-300">
-            <a href="#menu" className="btn-gold rounded-sm">
+            <Link to="/menu" className="btn-gold rounded-sm">
               Explore Menu
-            </a>
-            <a href="#reserve" className="btn-terracotta rounded-sm">
+            </Link>
+            <Link to="/reservations" className="btn-terracotta rounded-sm">
               Reserve Table
-            </a>
+            </Link>
           </div>
         </div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in delay-500">
-          <a 
-            href="#menu" 
+          <Link 
+            to="/menu" 
             className="flex flex-col items-center gap-2 text-gold/60 hover:text-gold transition-colors"
           >
             <span className="text-xs tracking-[0.3em] uppercase">Scroll</span>
             <ChevronDown className="w-5 h-5 animate-bounce" />
-          </a>
+          </Link>
         </div>
       </div>
 

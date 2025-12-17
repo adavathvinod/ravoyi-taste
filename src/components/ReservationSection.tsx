@@ -2,7 +2,11 @@ import { useState } from 'react';
 import { Calendar, Clock, Users, ChefHat, Check } from 'lucide-react';
 import { toast } from 'sonner';
 
-const ReservationSection = () => {
+interface ReservationSectionProps {
+  showHeader?: boolean;
+}
+
+const ReservationSection = ({ showHeader = true }: ReservationSectionProps) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -40,15 +44,17 @@ const ReservationSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="section-subtitle mb-4">Table Reservations</p>
-          <h2 className="section-title mb-6">Reserve Your Table</h2>
-          <p className="font-body text-cream/60 max-w-xl mx-auto">
-            Skip the wait and secure your dining experience. Pre-book your table 
-            and let us know your spice preferences for a personalized meal.
-          </p>
-          <div className="gold-divider max-w-md mx-auto mt-6" />
-        </div>
+        {showHeader && (
+          <div className="text-center mb-16">
+            <p className="section-subtitle mb-4">Table Reservations</p>
+            <h2 className="section-title mb-6">Reserve Your Table</h2>
+            <p className="font-body text-cream/60 max-w-xl mx-auto">
+              Skip the wait and secure your dining experience. Pre-book your table 
+              and let us know your spice preferences for a personalized meal.
+            </p>
+            <div className="gold-divider max-w-md mx-auto mt-6" />
+          </div>
+        )}
 
         <div className="max-w-4xl mx-auto">
           <form onSubmit={handleSubmit} className="glass rounded-xl p-8 md:p-12">

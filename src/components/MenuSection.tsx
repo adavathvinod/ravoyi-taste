@@ -55,7 +55,11 @@ const categories = [
   { id: 'biryani', name: 'Biryani & Pulao' },
 ];
 
-const MenuSection = () => {
+interface MenuSectionProps {
+  showHeader?: boolean;
+}
+
+const MenuSection = ({ showHeader = true }: MenuSectionProps) => {
   const [activeCategory, setActiveCategory] = useState<Category>('all');
 
   const filteredItems = activeCategory === 'all' 
@@ -66,11 +70,13 @@ const MenuSection = () => {
     <section id="menu" className="py-24 bg-gradient-dark">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="section-subtitle mb-4">The Digital Kitchen</p>
-          <h2 className="section-title mb-6">Our Menu</h2>
-          <div className="gold-divider max-w-md mx-auto" />
-        </div>
+        {showHeader && (
+          <div className="text-center mb-16">
+            <p className="section-subtitle mb-4">The Digital Kitchen</p>
+            <h2 className="section-title mb-6">Our Menu</h2>
+            <div className="gold-divider max-w-md mx-auto" />
+          </div>
+        )}
 
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">

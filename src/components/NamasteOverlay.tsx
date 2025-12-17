@@ -21,8 +21,9 @@ const NamasteOverlay = ({ onComplete }: NamasteOverlayProps) => {
   return (
     <div className="namaste-overlay">
       <div className="text-center">
+        {/* Telugu Namaskaram */}
         <h1 className="namaste-text animate-namaste">
-          नमस्ते
+          నమస్కారం
         </h1>
         <p className="mt-4 font-display text-lg tracking-[0.5em] text-gold/60 opacity-0 animate-fade-in delay-500">
           Welcome to Ravoyi
